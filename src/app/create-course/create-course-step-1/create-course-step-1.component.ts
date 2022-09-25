@@ -13,6 +13,7 @@ import { courseTitleValidator } from "../../validators/course-title-valitator";
 export class CreateCourseStep1Component implements OnInit {
   // form: FormGroup;
 
+  courseCategories$: Observable<any>;
   form = this.fb.group({
     title: [
       "",
@@ -26,11 +27,17 @@ export class CreateCourseStep1Component implements OnInit {
         updateOn: "blur",
       },
     ],
+    releasedAt: [new Date(), Validators.required],
+    downloadAllowed: [false, Validators.requiredTrue],
+    longDes: ["", Validators.required],
+    category: ["BEGINNER", Validators.required],
   });
   constructor(private fb: FormBuilder, private course: CoursesService) {}
 
   get courseTitle() {
     return this.form.controls["title"];
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.courseCategories$ = this.course.findCourseCategories();
+  }
 }

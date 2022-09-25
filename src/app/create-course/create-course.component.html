@@ -1,12 +1,22 @@
 <div class="create-course-panel data-form">
   <h2 class="title">Create New Course</h2>
 
-  <mat-stepper orientation="horizontal" #stepper>
-    <mat-step>
+  <mat-stepper orientation="horizontal" [linear]="false" #stepper>
+    <mat-step [stepControl]="course1.form" errorMessage="Landing Page Error">
       <ng-template matStepLabel>Fill out your name</ng-template>
-      <create-course-step-1></create-course-step-1>
+      <create-course-step-1 #course1></create-course-step-1>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext>Continue step 2</button>
+      </div>
+    </mat-step>
+
+    <mat-step errorMessage="pricing error">
+      <ng-template matStepLabel>Course pricing details</ng-template>
+      <create-course-step-2 #course2></create-course-step-2>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+
+        <button mat-button matStepperNext>Continue step 2</button>
       </div>
     </mat-step>
   </mat-stepper>

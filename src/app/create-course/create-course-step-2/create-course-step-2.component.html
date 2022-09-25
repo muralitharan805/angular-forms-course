@@ -1,0 +1,24 @@
+<div [formGroup]="form">
+  <mat-radio-group formControlName="courseType">
+    <mat-radio-button [value]="'free'">Free</mat-radio-button>
+    <mat-radio-button [value]="'premium'">Premium</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field>
+    <input matInput placeholder="Price" type="number" formControlName="price" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Start date" formControlName="promst" />
+      <input matEndDate placeholder="End date" formControlName="promed" />
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+</div>
+<div>
+  {{ form.value | json }}
+</div>
