@@ -30,6 +30,7 @@ export class CreateCourseStep1Component implements OnInit {
     downloadAllowed: [false, Validators.requiredTrue],
     longDes: ["", Validators.required],
     category: ["BEGINNER", Validators.required],
+    address: ["", Validators.required],
   });
   constructor(private fb: FormBuilder, private course: CoursesService) {}
 
