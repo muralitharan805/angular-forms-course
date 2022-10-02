@@ -7,7 +7,10 @@
   <mat-form-field>
     <input matInput placeholder="Price" type="number" formControlName="price" />
   </mat-form-field>
-
+  <file-upload
+    formControlName="thumbnail"
+    requriedFileType="image/pricing"
+  ></file-upload>
   <mat-form-field appearance="fill">
     <mat-label>Enter a date range</mat-label>
     <mat-date-range-input [rangePicker]="picker">
@@ -21,4 +24,7 @@
 </div>
 <div>
   {{ form.value | json }}
+</div>
+<div>
+  {{ form.valid | json }}
 </div>

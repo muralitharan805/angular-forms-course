@@ -21,8 +21,9 @@ export class CreateCourseStep2Component implements OnInit {
           Validators.pattern("[0-9]"),
         ],
       ],
-      promst: [new Date(), Validators.required],
-      promed: [new Date(), Validators.required],
+      thumbnail: [null],
+      promst: [new Date()],
+      promed: [new Date()],
     });
   }
   ngOnInit() {

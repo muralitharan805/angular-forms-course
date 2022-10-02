@@ -24,7 +24,6 @@ export class CreateCourseStep1Component implements OnInit {
           Validators.maxLength(60),
         ],
         asyncValidators: [courseTitleValidator(this.course)],
-        updateOn: "blur",
       },
     ],
     releasedAt: [new Date(), Validators.required],
